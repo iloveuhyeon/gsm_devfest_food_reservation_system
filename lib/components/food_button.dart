@@ -6,31 +6,45 @@ class FoodButton extends StatelessWidget {
     required this.height,
     required this.width,
     required this.text,
+    required this.imageAsset,
   });
   final double width;
   final double height;
   final String text;
+  final String imageAsset;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20),
+    return GestureDetector(
+      child: Container(
+        alignment: Alignment.center,
+        margin: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+          color: Colors.white,
         ),
-        border: Border.all(
-          color: Colors.grey,
-        ),
-      ),
-      height: height,
-      width: width,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w600,
+        height: height,
+        width: width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              imageAsset,
+              fit: BoxFit.fill,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
         ),
       ),
     );
